@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define mod %
+#define find_array_max *max_element(arr.begin(), arr.end());
+#define find_array_min *min_element(arr.begin(), arr.end());
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define negInf INT_MIN
+#define left_range(i, x, y) for (int i = x; i <= y; i++)
+#define right_range(i, x, y) for (int i = y; i >= x; i--)
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+int binary_search(int ar[], int n, int x)
+{
+    int ans = -1;
+    sort(ar, ar + n);
+    int l = 0;
+    int r = n - 1;
+    while (l <= r)
+    {
+        int mid = (l + r) / 2;
+        if (ar[mid] == x)
+        {
+            ans = mid;
+            break;
+        }
+        if (ar[mid] > x)
+        {
+
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
+        }
+    }
+    return ans;
+}
+void go_on()
+{
+    int n, x;
+    cin >> n >> x;
+    int arr[n];
+    left_range(i, 0, n - 1)
+    {
+        cin >> arr[i];
+    }
+    cout << binary_search(arr, n, x);
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    go_on();
+
+    return 0;
+}
